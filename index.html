@@ -3,270 +3,392 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Leonardo Urrea R.</title>
-<meta name="description" content="Leonardo Urrea R., PhD candidate in Economics at the University of Pittsburgh. Public finance, fiscal policy and macroeconomics in Latin America.">
+<title>Leonardo Urrea R. | Economist</title>
+<meta name="description" content="Leonardo Urrea R., PhD candidate in Economics at the University of Pittsburgh. Public finance and macroeconomics in developing economies.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
+/* One page per tab (About, Research, Policy, Teaching, Español). White ground,
+   serif headings, sans body, hairline rules, a single petrol-blue accent. */
 :root {
-  /* Layout: one narrow reading column, sticky top nav, sections separated by hairlines. Ledger-like, sober. */
-  --paper: #f7f8f6;
-  --ink: #1b2226;
-  --muted: #5b666c;
-  --rule: #d9dedb;
-  --accent: #1f4e5f;      /* deep petrol blue */
-  --accent-soft: #e3ecee;
-  --mark: #b5651d;        /* used only for the job market badge */
-  --display: "Source Serif 4", Georgia, "Times New Roman", serif;
-  --body: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
-  color-scheme: light;
+  --paper: #ffffff;
+  --panel: #f4f7f8;
+  --ink: #16242b;
+  --text: #2c363b;
+  --muted: #667378;
+  --faint: #8a969b;
+  --line: #e4e9eb;
+  --line-2: #cbd4d8;
+  --accent: #1f4e5f;
+  --accent-deep: #163946;
+  --serif: "Source Serif 4", "Iowan Old Style", Georgia, serif;
+  --sans: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  --w: 1040px;
+  --measure: 66ch;
 }
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --paper: #12171a; --ink: #e4e8e6; --muted: #9aa5aa; --rule: #2b3438;
-    --accent: #8cc3d3; --accent-soft: #1c2a30; --mark: #e0a060; color-scheme: dark;
-  }
-}
-:root[data-theme="dark"] {
-  --paper: #12171a; --ink: #e4e8e6; --muted: #9aa5aa; --rule: #2b3438;
-  --accent: #8cc3d3; --accent-soft: #1c2a30; --mark: #e0a060; color-scheme: dark;
-}
-* { box-sizing: border-box; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .page { animation: none !important; } }
 body {
-  margin: 0; background: var(--paper); color: var(--ink);
-  font-family: var(--body); font-size: 16px; line-height: 1.6;
+  font-family: var(--sans); font-size: 16.5px; line-height: 1.7;
+  color: var(--text); background: var(--paper);
+  -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
 }
-a { color: var(--accent); text-underline-offset: 3px; text-decoration-thickness: 1px; }
-a:hover { text-decoration-thickness: 2px; }
-a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
-h1, h2, h3 { font-family: var(--display); text-wrap: balance; line-height: 1.2; margin: 0; }
-h2 { font-size: 1.55rem; font-weight: 600; }
-h3 { font-size: 1.12rem; font-weight: 600; }
-p { margin: 0; }
+h1, h2, h3 { font-family: var(--serif); color: var(--ink); font-weight: 500; line-height: 1.2; text-wrap: balance; }
+strong { font-weight: 600; color: var(--ink); }
+a { color: var(--accent); text-decoration: none; text-underline-offset: 0.16em; text-decoration-thickness: 1px; }
+a:hover { color: var(--accent-deep); text-decoration: underline; }
+a:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
 
-nav.top {
-  position: sticky; top: 0; z-index: 5; background: var(--paper);
-  border-bottom: 1px solid var(--rule);
+/* ---------- Navigation ---------- */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(255,255,255,.95); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  border-top: 3px solid var(--accent); border-bottom: 1px solid var(--line);
 }
-nav.top .inner {
-  max-width: 860px; margin: 0 auto; padding: 0.7rem 20px;
-  display: flex; gap: 1.2rem; align-items: center; flex-wrap: wrap;
+.nav-inner {
+  max-width: var(--w); margin: 0 auto; padding: 0.95rem 2rem;
+  display: flex; justify-content: space-between; align-items: center; gap: 1rem;
 }
-nav.top .name { font-family: var(--display); font-weight: 700; color: var(--ink); text-decoration: none; margin-right: auto; }
-nav.top a.l { color: var(--muted); text-decoration: none; font-size: 0.92rem; }
-nav.top a.l:hover { color: var(--accent); }
-
-main { max-width: 860px; margin: 0 auto; padding: 0 20px 4rem; }
-section { padding: 2.6rem 0; border-bottom: 1px solid var(--rule); display: grid; gap: 1.2rem; }
-section:last-of-type { border-bottom: 0; }
-
-.hero { display: grid; grid-template-columns: 160px 1fr; gap: 2rem; align-items: start; padding-top: 3rem; }
-.photo {
-  width: 160px; height: 200px; object-fit: cover; border-radius: 4px; display: block;
-  background: var(--accent-soft); border: 1px solid var(--rule);
+.nav-name { font-family: var(--serif); font-size: 1.3rem; font-weight: 500; color: var(--ink); }
+.nav-name:hover { color: var(--accent); text-decoration: none; }
+.nav-links { display: flex; gap: 1.9rem; list-style: none; }
+.nav-links a {
+  color: var(--muted); font-size: 0.78rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase;
+  padding: 0.3rem 0; border-bottom: 1px solid transparent;
 }
-.hero h1 { font-size: 2.4rem; font-weight: 700; }
-.role { font-size: 1.05rem; color: var(--muted); margin-top: 0.3rem; }
-.badge {
-  display: inline-block; margin-top: 0.9rem; padding: 0.2rem 0.65rem; border: 1px solid var(--mark);
-  color: var(--mark); font-size: 0.82rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; border-radius: 3px;
+.nav-links a:hover, .nav-links a.active { color: var(--ink); border-bottom-color: var(--accent); text-decoration: none; }
+.menu-toggle { display: none; background: none; border: none; font-size: 1.4rem; color: var(--ink); cursor: pointer; line-height: 1; }
+
+/* ---------- Layout ---------- */
+.container { max-width: var(--w); margin: 0 auto; padding: 0 2rem; }
+.page { padding: 8rem 0 4.5rem; scroll-margin-top: 0; }
+.js .page { display: none; min-height: calc(100vh - 90px); animation: fade .4s ease; }
+.js .page.active { display: block; }
+@keyframes fade { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: none; } }
+
+.eyebrow {
+  font-size: 0.72rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent);
+  margin-bottom: 1rem; display: flex; align-items: center; gap: 0.9rem;
 }
-.bio { margin-top: 1rem; max-width: 65ch; display: grid; gap: 0.8rem; }
-.fields { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
-.fields span { background: var(--accent-soft); color: var(--accent); font-size: 0.85rem; padding: 0.2rem 0.6rem; border-radius: 3px; }
-.links { display: flex; flex-wrap: wrap; gap: 0.4rem 1.2rem; margin-top: 1.1rem; font-size: 0.93rem; }
+.eyebrow::before { content: ""; width: 2rem; height: 1px; background: var(--accent); }
+h1.page-title, h2.page-title {
+  font-size: clamp(2.4rem, 4.2vw, 3.4rem); font-weight: 400; letter-spacing: -0.015em; line-height: 1.05;
+  margin-bottom: 2.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--line-2);
+}
+.subhead {
+  font-family: var(--sans); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--faint); margin-bottom: 0.4rem; padding-bottom: 0.7rem; border-bottom: 1px solid var(--line);
+}
+.lead { font-family: var(--serif); font-size: 1.2rem; line-height: 1.6; max-width: var(--measure); }
+.lead p + p { margin-top: 1.2rem; }
+.group { margin-top: 3.25rem; }
 
-.jmp { border-left: 3px solid var(--accent); padding: 1.3rem 1.5rem; background: var(--accent-soft); border-radius: 0 4px 4px 0; display: grid; gap: 0.7rem; }
-.jmp .kicker { font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); font-weight: 600; }
-.jmp h3 { font-size: 1.35rem; }
-.jmp .coauth { color: var(--muted); font-size: 0.93rem; }
-.jmp p.abs { max-width: 68ch; font-size: 0.97rem; }
-.jmp .btns { display: flex; gap: 0.8rem; flex-wrap: wrap; }
-.btn { display: inline-block; padding: 0.4rem 0.9rem; border: 1px solid var(--accent); border-radius: 3px; font-size: 0.9rem; font-weight: 500; text-decoration: none; }
-.btn.primary { background: var(--accent); color: var(--paper); }
+/* ---------- About ---------- */
+.about-grid { display: grid; grid-template-columns: minmax(0, 1fr) 264px; gap: 4.5rem; align-items: start; }
+.photo { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; display: block; border-radius: 2px; background: var(--panel); margin-bottom: 1.5rem; }
+.info { font-size: 0.92rem; line-height: 1.6; }
+.info div { padding: 0.9rem 0; border-top: 1px solid var(--line); }
+.info div:last-child { border-bottom: 1px solid var(--line); }
+.info b { display: block; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--faint); margin-bottom: 0.3rem; }
+.btns { display: flex; flex-wrap: wrap; gap: 0.7rem; margin-top: 2rem; }
+.btn {
+  display: inline-block; padding: 0.65rem 1.2rem; border: 1px solid var(--ink); border-radius: 2px;
+  font-size: 0.76rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink);
+}
+.btn.primary { background: var(--ink); color: var(--paper); }
+.btn:hover { background: var(--accent); border-color: var(--accent); color: #fff; text-decoration: none; }
 
-.group { display: grid; gap: 0.9rem; }
-.group > h3 { color: var(--muted); font-family: var(--body); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
-ul.pubs { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.85rem; }
-ul.pubs li { max-width: 72ch; }
-.t { font-weight: 600; }
-.meta { color: var(--muted); font-size: 0.92rem; }
-.venue { font-style: italic; }
+/* ---------- Papers ---------- */
+.paper { padding: 1.5rem 0; border-bottom: 1px solid var(--line); }
+.paper:last-child { border-bottom: none; }
+.paper-title { font-family: var(--serif); font-size: 1.3rem; font-weight: 500; color: var(--ink); line-height: 1.3; max-width: 44em; }
+.paper-meta { font-size: 0.93rem; color: var(--muted); margin-top: 0.4rem; }
+.paper-meta .venue { font-family: var(--serif); font-style: italic; font-size: 1.03em; color: var(--text); }
+.paper-links { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.8rem; }
+.chip, details.abs > summary {
+  display: inline-block; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+  padding: 0.36rem 0.75rem; border: 1px solid var(--line-2); border-radius: 2px; color: var(--text); line-height: 1.2; cursor: pointer;
+}
+.chip:hover, details.abs > summary:hover, details.abs[open] > summary { background: var(--ink); border-color: var(--ink); color: var(--paper); text-decoration: none; }
+details.abs { margin-top: 0.8rem; }
+details.abs > summary { list-style: none; }
+details.abs > summary::-webkit-details-marker { display: none; }
+details.abs > summary::after { content: " \25B8"; }
+details.abs[open] > summary::after { content: " \25BE"; }
+.abstract { font-family: var(--serif); font-size: 1.05rem; line-height: 1.62; border-left: 1px solid var(--accent); padding: 0.2rem 0 0.2rem 1.4rem; margin-top: 1rem; }
+.paper.jmp { background: var(--panel); border: 1px solid var(--line); border-top: 2px solid var(--ink); padding: 2.1rem 2.4rem; margin-top: 1.4rem; }
+.paper.jmp .paper-title { font-size: 1.7rem; font-weight: 400; letter-spacing: -0.01em; line-height: 1.2; }
+.paper.jmp .paper-meta { font-family: var(--serif); font-style: italic; font-size: 1rem; }
+.compact .paper { padding: 0.95rem 0; }
+.compact .paper-title { font-size: 1.1rem; }
 
-.rows { display: grid; gap: 0; }
-.row { display: grid; grid-template-columns: 1fr auto; gap: 0.2rem 1.5rem; padding: 0.75rem 0; border-top: 1px solid var(--rule); }
-.row:first-child { border-top: 0; }
-.row .when { color: var(--muted); font-size: 0.9rem; font-variant-numeric: tabular-nums; white-space: nowrap; }
-.row .what { font-size: 0.93rem; color: var(--muted); grid-column: 1 / -1; }
+/* ---------- Rows (positions, courses) ---------- */
+.entry { padding: 1rem 0; border-bottom: 1px solid var(--line); }
+.entry:last-child { border-bottom: none; }
+.entry-head { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.2rem 1.5rem; }
+.entry-title { font-family: var(--serif); font-size: 1.22rem; font-weight: 500; color: var(--ink); }
+.entry-date { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.06em; color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.entry-detail { font-size: 0.95rem; color: var(--muted); margin-top: 0.2rem; }
 
-.refs { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; }
-.ref { border: 1px solid var(--rule); border-radius: 4px; padding: 0.9rem 1rem; font-size: 0.93rem; }
-.todo { border-style: dashed; border-color: var(--mark); color: var(--muted); }
+/* ---------- Evaluations table ---------- */
+.table-wrap { overflow-x: auto; margin-top: 1rem; }
+table { width: 100%; border-collapse: collapse; font-size: 0.93rem; }
+th { text-align: left; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--faint); padding: 0.6rem 0.8rem 0.6rem 0; border-bottom: 1px solid var(--line-2); }
+td { padding: 0.75rem 0.8rem 0.75rem 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; padding-right: 0; white-space: nowrap; }
+.note { font-size: 0.86rem; color: var(--muted); margin-top: 0.8rem; max-width: var(--measure); }
 
-.es { background: var(--accent-soft); border-radius: 4px; padding: 1.5rem; display: grid; gap: 0.8rem; max-width: 72ch; }
+footer { border-top: 1px solid var(--line); }
+footer .container { padding-top: 1.5rem; padding-bottom: 2.5rem; font-size: 0.85rem; color: var(--muted); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem 1.5rem; }
 
-footer { max-width: 860px; margin: 0 auto; padding: 1.5rem 20px 3rem; color: var(--muted); font-size: 0.85rem; border-top: 1px solid var(--rule); }
-
-@media (max-width: 600px) {
-  .hero { grid-template-columns: 1fr; gap: 1.2rem; }
-  .photo { width: 128px; height: 160px; }
-  .hero h1 { font-size: 2rem; }
-  nav.top .name { width: 100%; }
-  .row { grid-template-columns: 1fr; }
+@media (max-width: 860px) {
+  .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .about-side { max-width: 260px; }
+  .menu-toggle { display: block; }
+  .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; gap: 0; background: var(--paper); border-bottom: 1px solid var(--line); padding: 0.4rem 1rem 0.8rem; }
+  .nav-links.open { display: flex; }
+  .nav-links a { display: block; padding: 0.7rem 0; }
+  .nav-inner, .container { padding-left: 16px; padding-right: 16px; }
+  .page { padding-top: 6.5rem; }
+  .paper.jmp { padding: 1.5rem 1.2rem; }
+  .paper.jmp .paper-title { font-size: 1.4rem; }
 }
 </style>
 </head>
 <body>
 
-<nav class="top" aria-label="Main">
-  <div class="inner">
-    <a class="name" href="#top">Leonardo Urrea R.</a>
-    <a class="l" href="#research">Research</a>
-    <a class="l" href="#policy">Policy work</a>
-    <a class="l" href="#teaching">Teaching</a>
-    <a class="l" href="#contact">Contact</a>
-    <a class="l" href="Urrea_CV.pdf">CV</a>
-    <a class="l" href="#es" lang="es">Español</a>
+<nav aria-label="Main">
+  <div class="nav-inner">
+    <a class="nav-name" href="#about">Leonardo Urrea R.</a>
+    <button class="menu-toggle" aria-label="Menu" aria-expanded="false">☰</button>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#policy">Policy Work</a></li>
+      <li><a href="#teaching">Teaching</a></li>
+      <li><a href="Urrea_CV.pdf" target="_blank" rel="noopener">CV</a></li>
+      <li><a href="#es" lang="es">Español</a></li>
+    </ul>
   </div>
 </nav>
 
-<main id="top">
-
-<section class="hero" aria-label="About">
-  <img class="photo" src="photo.jpg" alt="Portrait of Leonardo Urrea R." width="160" height="200">
-  <div>
-    <h1>Leonardo Urrea R.</h1>
-    <p class="role">PhD Candidate in Economics, University of Pittsburgh</p>
-    <div class="bio">
-      <p>I study public finance and macroeconomics in developing economies: how governments adjust when debt becomes unsustainable, how fiscal rules perform in practice, and who bears the cost of fiscal and economic crises. Most of my work uses Colombian administrative and fiscal data.</p>
-      <p>Before the PhD I spent a decade working on fiscal policy from the inside: as a macroeconomic analyst at Colombia's Ministry of Finance, as a researcher and consultant at the Inter-American Development Bank, and as an advisor to the Caribbean Development Bank. I have taught economics at Universidad Nacional de Colombia, Universidad de los Andes, Universidad del Rosario and the University of Pittsburgh.</p>
+<!-- ============================ ABOUT ============================ -->
+<section class="page active" id="about">
+  <div class="container">
+    <div class="eyebrow">About</div>
+    <h1 class="page-title">Leonardo Urrea R.</h1>
+    <div class="about-grid">
+      <div>
+        <div class="lead">
+          <p>I am a Ph.D. candidate in Economics at the <a href="https://www.econ.pitt.edu/" target="_blank" rel="noopener">University of Pittsburgh</a> (expected 2027). I study public finance and macroeconomics in developing economies: how governments adjust when debt becomes unsustainable, how fiscal rules perform in practice, and who bears the cost of fiscal and economic crises. Most of my work uses Colombian administrative and fiscal data.</p>
+          <p>My job market paper, <a href="#research"><em>Fiscal Adjustment without Collapse</em></a>, studies close to a hundred Colombian departments and municipalities that restructured their debts under Law 550 without a bailout, and asks who paid for the adjustment.</p>
+          <p>Before the Ph.D. I spent a decade working on fiscal policy from the inside: as a macroeconomic analyst at Colombia's Ministry of Finance, as a researcher and consultant at the Inter-American Development Bank, and as an advisor to the Caribbean Development Bank. I have taught economics at Universidad Nacional de Colombia, Universidad de los Andes, Universidad del Rosario and the University of Pittsburgh.</p>
+        </div>
+        <div class="btns">
+          <a class="btn primary" href="Urrea_CV.pdf" target="_blank" rel="noopener">Download CV</a>
+          <a class="btn" href="Urrea_JMP.pdf" target="_blank" rel="noopener">Job Market Paper</a>
+        </div>
+      </div>
+      <aside class="about-side">
+        <img class="photo" src="photo.jpg" alt="Portrait of Leonardo Urrea R.">
+        <div class="info">
+          <div><b>Affiliation</b>Department of Economics<br>University of Pittsburgh<br>Wesley W. Posvar Hall, Office 4911<br>230 S Bouquet St<br>Pittsburgh, PA 15213</div>
+          <div><b>Fields</b>Macroeconomics<br>Public Economics<br>Development Economics</div>
+          <div><b>Email</b><a href="mailto:ivu1@pitt.edu">ivu1@pitt.edu</a></div>
+          <div><b>Find me</b><a href="https://scholar.google.com/citations?user=LGoNyuUAAAAJ" target="_blank" rel="noopener">Google Scholar</a><br><a href="https://github.com/leourrea" target="_blank" rel="noopener">GitHub</a><br><a href="https://www.linkedin.com/in/ivan-leonardo-urrea-rios-76284247/" target="_blank" rel="noopener">LinkedIn</a></div>
+        </div>
+      </aside>
     </div>
-    <div class="fields" aria-label="Research fields">
-      <span>Public Finance</span><span>Macroeconomics</span><span>Development Economics</span><span>Political Economy</span>
+  </div>
+</section>
+
+<!-- ============================ RESEARCH ============================ -->
+<section class="page" id="research">
+  <div class="container">
+    <div class="eyebrow">Research</div>
+    <h2 class="page-title">Research</h2>
+    <p class="lead">I work at the intersection of public finance and macroeconomics, with a focus on how governments in developing economies manage debt, fiscal rules and crises. I combine newly coded administrative records with modern panel methods, and I draw on a decade of work inside fiscal institutions to choose the questions.</p>
+    <!-- When the research statement is ready, add:
+    <div class="btns"><a class="btn" href="Urrea_Research_Statement.pdf" target="_blank" rel="noopener">Research Statement</a></div> -->
+
+    <div class="group">
+      <div class="subhead">Job Market Paper</div>
+      <article class="paper jmp">
+        <h3 class="paper-title">Fiscal Adjustment without Collapse: Restructuring Subnational Debt under Colombia's Law 550</h3>
+        <div class="paper-meta">with Gabriel Tourek (UC Davis)</div>
+        <p class="abstract">When a subnational government becomes insolvent, the usual options are a bailout or a forced adjustment that cuts its core functions. We study a third option: Colombia's Law 550, under which nearly a hundred departments and municipalities restructured their debts and restored fiscal sustainability. They did so through agreements with creditors that set both the debt terms and the fiscal measures, without a bailout from the central government. We code every agreement between 2000 and 2016, match it to the Ministry of Finance's creditor ledger, and compare signers with governments that never entered, using synthetic difference-in-differences under a single monetary policy. Treated municipalities paid a quarter less interest, and their overall balance improved by five points of revenue without a large primary surplus. Payroll and capital spending each fell by a sixth, social investment rose, taxes did not change, and local output did not contract. Creditors were paid the recognized debt at face value.</p>
+        <div class="paper-links"><a class="chip" href="Urrea_JMP.pdf" target="_blank" rel="noopener">Download PDF</a></div>
+      </article>
     </div>
-    <div class="links">
-      <a href="mailto:ivu1@pitt.edu">ivu1@pitt.edu</a>
-      <a href="Urrea_CV.pdf">CV (PDF)</a>
-      <a href="https://scholar.google.com/citations?user=LGoNyuUAAAAJ&amp;hl=es">Google Scholar</a>
-      <a href="https://github.com/leourrea">GitHub</a>
-      <a href="https://www.linkedin.com/in/ivan-leonardo-urrea-rios-76284247/">LinkedIn</a>
-      <a href="https://twitter.com/leo_urrea_r">X / Twitter</a>
+
+    <div class="group">
+      <div class="subhead">Working Papers</div>
+      <article class="paper">
+        <h3 class="paper-title">Who Dies in a Crisis? Economic Collapse and Violent Death in Colombia, 1998–2004</h3>
+        <div class="paper-meta">with Juliana Jaramillo Echeverri and Christian Posso</div>
+        <p class="abstract">In advanced economies, fewer people die during economic downturns. In Colombia's crisis of 1999, its worst recession of the twentieth century, the death rate at working ages rose, and homicide accounts for all of the rise. We ask whether the crisis caused these deaths. We combine 1.4 million death certificates of the urban residents of 1,014 towns with a measure of how hard the crisis hit each town: the shortfall of its night lights below their own trend. Where an armed group operated before the crisis, a town one standard deviation further short has 14.3 log points more homicides in 2001–04 than a neighbor in the same department (standard error 4.8), about 11 more per 100,000 residents a year. We find no difference between them in the five years before the crisis. The added victims are working-age men killed with firearms. Kidnappings rise in the same towns, and no other cause of death responds. The shortfall accounts for about 900 homicides a year in 2001–04 and, over 1999–2002, for between a fifth and a third of the rise in homicide.</p>
+        <div class="paper-links"><a class="chip" href="Urrea_Crisis_Paper.pdf" target="_blank" rel="noopener">Download PDF</a></div>
+      </article>
+    </div>
+
+    <div class="group">
+      <div class="subhead">Publications</div>
+      <article class="paper">
+        <h3 class="paper-title">Fiscal Rules and Economic Cycles: Quality (Always) Matters</h3>
+        <div class="paper-meta">with Leandro Andrián, Jorge Hirs-Garzón and Oscar M. Valencia · <span class="venue">European Journal of Political Economy</span> 85: 102591, 2024</div>
+        <div class="paper-links">
+          <a class="chip" href="https://www.sciencedirect.com/science/article/abs/pii/S0176268024000934" target="_blank" rel="noopener">Journal</a>
+          <a class="chip" href="https://publications.iadb.org/en/fiscal-rules-and-economic-cycles-quality-always-matters" target="_blank" rel="noopener">IDB Working Paper</a>
+        </div>
+      </article>
+      <article class="paper">
+        <h3 class="paper-title" lang="es">Pensiones en Colombia: la deuda que heredarán los jóvenes</h3>
+        <div class="paper-meta">with Julián A. Parra-Polanía, Jorge Llano and Santiago León · <span class="venue">Coyuntura Económica: Investigación Económica y Social</span> 53: 11–28, 2023</div>
+        <div class="paper-links"><a class="chip" href="papers/Parra_Llano_Leon_Urrea_2023_Pensiones.pdf" target="_blank" rel="noopener">PDF</a><a class="chip" href="https://ideas.repec.org/a/col/000438/021118.html" target="_blank" rel="noopener">RePEc</a></div>
+      </article>
+      <article class="paper">
+        <h3 class="paper-title" lang="es">¿Economía o salud? Un análisis global de la pandemia de COVID-19</h3>
+        <div class="paper-meta">with Liliana Chicaíza Becerra and Mario García Molina · <span class="venue">Revista de Economía Institucional</span> 23(44): 171–194, 2020</div>
+        <div class="paper-links"><a class="chip" href="papers/Chicaiza_Garcia_Urrea_2020_Economia_o_salud.pdf" target="_blank" rel="noopener">PDF</a><a class="chip" href="https://revistas.uexternado.edu.co/index.php/ecoins/article/view/7027" target="_blank" rel="noopener">Journal</a></div>
+      </article>
+    </div>
+
+    <div class="group compact">
+      <div class="subhead">Work in Progress</div>
+      <article class="paper"><h3 class="paper-title">The Speed of Aging and Wealth Composition: Implications for Pension and Macroeconomic Sustainability</h3></article>
+      <article class="paper"><h3 class="paper-title">Optimal Tax Structures for Development</h3></article>
     </div>
   </div>
 </section>
 
-<section id="research" aria-labelledby="h-research">
-  <h2 id="h-research">Research</h2>
+<!-- ============================ POLICY ============================ -->
+<section class="page" id="policy">
+  <div class="container">
+    <div class="eyebrow">Policy</div>
+    <h2 class="page-title">Policy Work</h2>
+    <p class="lead">I have worked on fiscal policy design and evaluation for governments and multilateral banks in Latin America and the Caribbean.</p>
 
-  <article class="jmp" aria-label="Job market paper">
-    <span class="kicker">Job Market Paper</span>
-    <h3>Fiscal Adjustment without Collapse: Restructuring Subnational Debt under Colombia's Law 550</h3>
-    <p class="coauth">with Gabriel Tourek (UC Davis) · November 2026</p>
-    <p class="abs">Public debt relative to output is at a record outside wartime, and the ways to stabilize it are few: higher taxes, lower spending, inflation, financial repression, or a restructuring. Which one a government chooses decides who bears the cost. We ask whether a government that can no longer pay its debts can restore its fiscal health and pay its creditors without a contractionary or regressive adjustment. Colombia's Law 550 provides the setting: close to a hundred departments and municipalities restructured their debts and adjusted under the Ministry of Finance's supervision without a bailout, beside a thousand governments that never did, under the same monetary policy. We code every agreement and estimate each cohort against the never-treated with synthetic difference-in-differences. The agreements worked. Interest and debt service fell for at least six years, the primary balance barely moved, and the debt stock did not rise faster than in comparable governments. The adjustment fell on payroll and on the government's own capital spending while social investment rose and no tax rate was raised. Output did not contract.</p>
-    <div class="btns">
-      <a class="btn primary" href="Urrea_JMP.pdf">Download paper (PDF)</a>
+    <div class="group">
+      <div class="subhead">Positions</div>
+      <div class="entry"><div class="entry-head"><span class="entry-title">Caribbean Development Bank</span><span class="entry-date">2025</span></div><div class="entry-detail">Macroeconomic and fiscal advisor, evaluation of 2017–2025 policy-based loans</div></div>
+      <div class="entry"><div class="entry-head"><span class="entry-title">Inter-American Development Bank</span><span class="entry-date">2025</span></div><div class="entry-detail">Consultant in public finance policy</div></div>
+      <div class="entry"><div class="entry-head"><span class="entry-title">Inter-American Development Bank</span><span class="entry-date">2019–2022</span></div><div class="entry-detail">Macroeconomic and fiscal research assistant</div></div>
+      <div class="entry"><div class="entry-head"><span class="entry-title">Ministry of Finance and Public Credit, Colombia</span><span class="entry-date">2012–2018</span></div><div class="entry-detail">Macroeconomic analyst and researcher</div></div>
     </div>
-  </article>
 
-  <div class="group">
-    <h3>Working papers</h3>
-    <ul class="pubs">
-      <li><span class="t">The Human Cost of Economic Crises: Evidence from Colombia's 1997–1999 Collapse</span><br><span class="meta">with Juliana Jaramillo Echeverri (Banco de la República)</span></li>
-      <li><span class="t" lang="es">Inflexibilidad presupuestal en Colombia y espacios legales para recortes de gasto: el caso de las transferencias</span><br><span class="meta">with F. Azuero · Oportunidad Estratégica, 2026</span></li>
-    </ul>
-  </div>
+    <div class="group compact">
+      <div class="subhead">Policy Reports and Book Chapters</div>
+      <article class="paper"><h3 class="paper-title">Compliance Without Convergence: Why Colombia's Fiscal Rule Failed</h3><div class="paper-meta">Policy paper, 2026</div></article>
+      <article class="paper"><h3 class="paper-title" lang="es">Colombia necesita reinventar su marco fiscal</h3><div class="paper-meta"><span class="venue">Revista Economía Colombiana</span> 379, March 2026 · <a href="https://revistaeconomiacolombiana.com/edicion_379_colombia_necesita_reinventar_su_marco_fiscal/" target="_blank" rel="noopener">Link</a></div></article>
+      <article class="paper"><h3 class="paper-title" lang="es">Inflexibilidad presupuestal en Colombia y espacios legales para recortes de gasto: el caso de las transferencias</h3><div class="paper-meta">with F. Azuero · Oportunidad Estratégica, 2026 · <a href="https://www.dropbox.com/scl/fi/d2uov44rvpmujed7f4ga5/Inflexibilidad-Presupuestal.pdf?rlkey=9nfyofovvzh60fxrj6dynchlh&amp;dl=0" target="_blank" rel="noopener">PDF</a></div></article>
+      <article class="paper"><h3 class="paper-title" lang="es">La industria farmacéutica y su estrategia de desarrollo en Colombia</h3><div class="paper-meta">with Jorge Iván Bula · CID, Universidad Nacional de Colombia, and ASINFAR, 2025 · <a href="papers/Bula_Urrea_2025_Industria_farmaceutica.pdf" target="_blank" rel="noopener">PDF</a></div></article>
+      <article class="paper"><h3 class="paper-title" lang="es">La eficiencia del gasto en regalías como instrumento para el desarrollo económico y social</h3><div class="paper-meta">with S. L. Álvarez, R. Umaña, A. Arellano and S. A. Vivas · Section 4.5 in <span class="venue" lang="es">¿Por qué seguimos siendo pobres en Colombia?</span>, Contraloría General de la República, 2024 · <a href="papers/Urrea_etal_2024_Regalias.pdf" target="_blank" rel="noopener">PDF</a> · <a href="https://fce.unal.edu.co/centro-editorial/images/books/Libro%20%C2%BFPor%20que%CC%81%20seguimos%20siendo%20pobres%20en%20Colombia%20Vdigital%20(2).pdf" target="_blank" rel="noopener">Full book</a></div></article>
+      <article class="paper"><h3 class="paper-title">A Framework for the Fiscal Impact of Electromobility</h3><div class="paper-meta">with A. Bonzi Teixeira, J. Benavides, A. Rasteletti and M. Madrigal · Inter-American Development Bank, 2022 · <a href="http://dx.doi.org/10.18235/0004039" target="_blank" rel="noopener">Link</a></div></article>
+      <article class="paper"><h3 class="paper-title" lang="es">Escenarios de reforma al impuesto al valor agregado IVA: impactos redistributivos y fiscales</h3><div class="paper-meta">with Estefanía Saravia Gómez · Chapter 2 in <span class="venue" lang="es">Política fiscal: una visión de futuro</span>, Asobancaria, 2022 · <a href="papers/Saravia_Urrea_2022_IVA.pdf" target="_blank" rel="noopener">PDF</a></div></article>
+      <article class="paper"><h3 class="paper-title" lang="es">Evaluación a la Ley 617 de 2000: un activo que debe preservarse</h3><div class="paper-meta">with A. F. Urrea-Bermúdez and N. Urrea-Duque · Dirección General de Apoyo Fiscal, Ministry of Finance and Public Credit, 2018</div></article>
+      <article class="paper"><h3 class="paper-title" lang="es">Efectos de la Ley de Reestructuración de Pasivos (Ley 550 de 1999) en las entidades territoriales</h3><div class="paper-meta">Ministry of Finance and Public Credit, 2014 · <a href="https://www.academia.edu/16751810/Efectos_de_la_Ley_de_Reestructuraci%C3%B3n_de_Pasivos_Ley_550_de_1999_en_las_Entidades_Territoriales" target="_blank" rel="noopener">Link</a></div></article>
+    </div>
 
-  <div class="group">
-    <h3>Refereed publications</h3>
-    <ul class="pubs">
-      <li><span class="t">Fiscal Rules and Economic Cycles: Quality (Always) Matters</span><br><span class="meta">with L. Andrian, J. Hirs and O. M. Valencia · <span class="venue">European Journal of Political Economy</span>, 2024 · <a href="https://www.sciencedirect.com/science/article/abs/pii/S0176268024000934">Journal</a> · <a href="https://publications.iadb.org/en/fiscal-rules-and-economic-cycles-quality-always-matters">IDB working paper</a></span></li>
-      <li><span class="t" lang="es">Pensiones en Colombia: la deuda que heredarán los jóvenes</span><br><span class="meta">with J. A. Parra-Polanía et al. · <span class="venue">Coyuntura Económica: Investigación Económica y Social</span> 53, 11–28, 2023 · <a href="https://www.repository.fedesarrollo.org.co/handle/11445/4510">Fedesarrollo repository</a></span></li>
-      <li><span class="t" lang="es">¿Economía o salud? Un análisis global de la pandemia de COVID-19</span><br><span class="meta">with L. Chicaíza Becerra and M. García Molina · <span class="venue">Revista de Economía Institucional</span> 23(44), 171–194, 2020 · <a href="https://revistas.uexternado.edu.co/index.php/ecoins/article/view/7027">Link</a></span></li>
-    </ul>
-  </div>
-
-  <div class="group">
-    <h3>Work in progress</h3>
-    <ul class="pubs">
-      <li><span class="t">Compliance Without Convergence: Why Colombia's Fiscal Rule Failed</span></li>
-      <li><span class="t">The Speed of Aging and Wealth Composition: Implications for Pension and Macroeconomic Sustainability</span></li>
-      <li><span class="t">Optimal Tax Structures for Development</span></li>
-    </ul>
+    <div class="group compact">
+      <div class="subhead">Other Writing</div>
+      <article class="paper"><h3 class="paper-title" lang="es">Impacto de la pandemia COVID-19 sobre el mercado laboral en Colombia</h3><div class="paper-meta">with J. Piraján, 2020 · <a href="https://ssrn.com/abstract=3738980" target="_blank" rel="noopener">SSRN</a></div></article>
+      <article class="paper"><h3 class="paper-title" lang="es">Impacto de la pandemia COVID-19 sobre la economía colombiana</h3><div class="paper-meta">with J. Piraján, 2020 · <a href="https://ssrn.com/abstract=3678321" target="_blank" rel="noopener">SSRN</a></div></article>
+      <article class="paper"><h3 class="paper-title" lang="es">La reforma pensional en Colombia: la inacción no es una opción</h3><div class="paper-meta">Documentos CID, Universidad Nacional de Colombia, 2020 · <a href="https://www.researchgate.net/publication/341089997_La_Reforma_Pensional_de_Colombia_La_inaccion_no_es_una_opcion" target="_blank" rel="noopener">ResearchGate</a></div></article>
+      <article class="paper"><h3 class="paper-title" lang="es">El factor tierra y el desarrollo económico en Colombia</h3><div class="paper-meta">Documentos CID, Universidad Nacional de Colombia, 2020 · <a href="https://www.researchgate.net/publication/341089886_El_Factor_Tierra_y_el_Desarrollo_Economico_en_Colombia" target="_blank" rel="noopener">ResearchGate</a></div></article>
+      <article class="paper"><h3 class="paper-title" lang="es">Cómo resolver un modelo de expectativas racionales</h3><div class="paper-meta">with M. García Molina, 2020 · <a href="https://ssrn.com/abstract=3527810" target="_blank" rel="noopener">SSRN</a></div></article>
+      <article class="paper"><h3 class="paper-title">Exchange-Rate Appreciation in a Natural Resource Boom: Colombia 2000–2015</h3><div class="paper-meta">M.Sc. thesis, 2016 · <a href="papers/Urrea_2016_MSc_thesis.pdf" target="_blank" rel="noopener">PDF</a> · <a href="https://repositorio.unal.edu.co/handle/unal/57930" target="_blank" rel="noopener">Repository</a></div></article>
+      <article class="paper"><h3 class="paper-title" lang="es">Enfermedad holandesa: el auge del sector minero-energético colombiano 2000–2010</h3><div class="paper-meta">with J. Gutiérrez and J. Piraján · CESLA, Universidad Autónoma de Madrid, 2012 · <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3427799" target="_blank" rel="noopener">SSRN</a></div></article>
+    </div>
   </div>
 </section>
 
-<section id="policy" aria-labelledby="h-policy">
-  <h2 id="h-policy">Policy work</h2>
-  <p style="max-width:65ch">I have worked on fiscal policy design and evaluation for governments and multilateral banks in Latin America and the Caribbean.</p>
+<!-- ============================ TEACHING ============================ -->
+<section class="page" id="teaching">
+  <div class="container">
+    <div class="eyebrow">Teaching</div>
+    <h2 class="page-title">Teaching</h2>
+    <p class="lead">I have taught economics since 2014, in Spanish and in English, to undergraduate and graduate students at five universities in Colombia and the United States. I received the Graduate Student Teaching Award of the Department of Economics at the University of Pittsburgh in 2025.</p>
+    <!-- When the teaching statement is ready, add:
+    <div class="btns"><a class="btn" href="Urrea_Teaching_Statement.pdf" target="_blank" rel="noopener">Teaching Statement</a></div> -->
 
-  <div class="rows">
-    <div class="row"><span class="t">Caribbean Development Bank</span><span class="when">2025</span><span class="what">Macroeconomic and fiscal advisor, evaluation of 2017–2025 policy-based loans</span></div>
-    <div class="row"><span class="t">Inter-American Development Bank</span><span class="when">2025</span><span class="what">Consultant in public finance policy</span></div>
-    <div class="row"><span class="t">Inter-American Development Bank</span><span class="when">2019–2022</span><span class="what">Macroeconomic and fiscal research assistant</span></div>
-    <div class="row"><span class="t">Ministry of Finance and Public Credit, Colombia</span><span class="when">2012–2018</span><span class="what">Macroeconomic analyst and researcher</span></div>
-  </div>
+    <div class="group">
+      <div class="subhead">University of Pittsburgh</div>
+      <div class="entry"><div class="entry-head"><span class="entry-title">Latin American Development</span><span class="entry-date">Summer 2026, Fall 2026</span></div><div class="entry-detail">Instructor</div></div>
+      <div class="entry"><div class="entry-head"><span class="entry-title">Intermediate Microeconomics</span><span class="entry-date">Summer 2025</span></div><div class="entry-detail">Instructor</div></div>
+      <div class="entry"><div class="entry-head"><span class="entry-title">Macroeconomic Theory I and II (Ph.D. core sequence)</span><span class="entry-date">2024–2025</span></div><div class="entry-detail">Teaching assistant and recitation instructor</div></div>
+      <div class="entry"><div class="entry-head"><span class="entry-title">Intermediate Macroeconomics</span><span class="entry-date">2023</span></div><div class="entry-detail">Teaching assistant</div></div>
+    </div>
 
-  <div class="group">
-    <h3>Policy reports and book chapters</h3>
-    <ul class="pubs">
-      <li><span class="t" lang="es">Colombia necesita reinventar su marco fiscal</span><br><span class="meta"><span class="venue">Revista Economía Colombiana</span> 379, 2026</span></li>
-      <li><span class="t" lang="es">La eficiencia del gasto en regalías como instrumento para el desarrollo económico y social</span><br><span class="meta">with S. L. Álvarez, R. Umaña, A. Arellano and S. A. Vivas · Chapter 4 in <span class="venue" lang="es">¿Por qué seguimos siendo pobres?</span>, Contraloría General de la República, 2024 · <a href="https://fce.unal.edu.co/centro-editorial/images/books/Libro%20%C2%BFPor%20que%CC%81%20seguimos%20siendo%20pobres%20en%20Colombia%20Vdigital%20(2).pdf">Link</a></span></li>
-      <li><span class="t">A Framework for the Fiscal Impact of Electromobility</span><br><span class="meta">with A. Bonzi Teixeira, J. Benavides, A. Rasteletti and M. Madrigal · Inter-American Development Bank, 2022 · <a href="http://dx.doi.org/10.18235/0004039">Link</a></span></li>
-      <li><span class="t">VAT Reform in Colombia: The Fiscal Adjustment post-COVID-19</span><br><span class="meta">with E. Saravia · Chapter 2 in <span class="venue" lang="es">Política fiscal: una visión de futuro</span>, Asobancaria, 2022</span></li>
-      <li><span class="t" lang="es">La industria farmacéutica y su desarrollo en Colombia</span><br><span class="meta">with J. I. Bula · CID, Universidad Nacional – ASINFAR, 2025</span></li>
-      <li><span class="t" lang="es">Evaluación a la Ley 617 de 2000: un activo que debe preservarse</span><br><span class="meta">Dirección General de Apoyo Fiscal, Ministry of Finance, 2018</span></li>
-      <li><span class="t" lang="es">Efectos de la Ley de Reestructuración de Pasivos sobre las entidades territoriales</span><br><span class="meta">Ministry of Finance and Public Credit, 2014 · <a href="https://www.academia.edu/16751810/Efectos_de_la_Ley_de_Reestructuraci%C3%B3n_de_Pasivos_Ley_550_de_1999_en_las_Entidades_Territoriales">Link</a></span></li>
-    </ul>
-  </div>
+    <div class="group">
+      <div class="subhead">Colombia</div>
+      <div class="entry"><div class="entry-head"><span class="entry-title">Universidad Nacional de Colombia</span><span class="entry-date">2014–2022</span></div><div class="entry-detail">Lecturer: Mathematical Methods for Economics; International Macroeconomics and Development; Empirical Methods; Quantitative Data Analysis</div></div>
+      <div class="entry"><div class="entry-head"><span class="entry-title">Universidad de los Andes</span><span class="entry-date">2018–2019</span></div><div class="entry-detail">Complementary lecturer: Colombian Economic History</div></div>
+      <div class="entry"><div class="entry-head"><span class="entry-title">Universidad del Rosario</span><span class="entry-date">2018–2019</span></div><div class="entry-detail">Lecturer: Economic Thought</div></div>
+      <div class="entry"><div class="entry-head"><span class="entry-title">Universidad de La Salle</span><span class="entry-date">2017</span></div><div class="entry-detail">Lecturer: International Macroeconomics</div></div>
+    </div>
 
-  <div class="group">
-    <h3>Other writing</h3>
-    <ul class="pubs">
-      <li><span class="meta"><span lang="es">Impacto de la pandemia COVID-19 sobre el mercado laboral en Colombia</span> (with J. Piraján), 2020 · <a href="https://ssrn.com/abstract=3738980">SSRN</a></span></li>
-      <li><span class="meta"><span lang="es">Impacto de la pandemia COVID-19 sobre la economía colombiana</span> (with J. Piraján), 2020 · <a href="https://ssrn.com/abstract=3678321">SSRN</a></span></li>
-      <li><span class="meta"><span lang="es">La reforma pensional en Colombia: la inacción no es una opción</span>, Documentos CID, 2020</span></li>
-      <li><span class="meta"><span lang="es">El factor tierra y el desarrollo económico en Colombia</span>, Documentos CID, 2020</span></li>
-      <li><span class="meta"><span lang="es">Cómo resolver un modelo de expectativas racionales</span> (with M. García Molina), 2020 · <a href="https://ssrn.com/abstract=3527810">SSRN</a></span></li>
-      <li><span class="meta">Exchange-rate appreciation in a natural resource boom: Colombia 2000–2015, M.Sc. thesis, 2016 · <a href="https://repositorio.unal.edu.co/handle/unal/57930">Link</a></span></li>
-      <li><span class="meta"><span lang="es">Enfermedad holandesa: el auge del sector minero energético colombiano 2000–2010</span> (with J. Gutiérrez and J. Piraján), CESLA, 2012 · <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3427799">SSRN</a></span></li>
-    </ul>
-  </div>
-</section>
-
-<section id="teaching" aria-labelledby="h-teaching">
-  <h2 id="h-teaching">Teaching</h2>
-  <p style="max-width:65ch">Graduate Student Teaching Award, Department of Economics, University of Pittsburgh, 2025.</p>
-  <div class="rows">
-    <div class="row"><span class="t">University of Pittsburgh · Lecturer</span><span class="when">Summer 2026</span><span class="what">Latin American Development</span></div>
-    <div class="row"><span class="t">University of Pittsburgh · Instructor</span><span class="when">Summer 2025</span><span class="what">Intermediate Microeconomics</span></div>
-    <div class="row"><span class="t">University of Pittsburgh · Teaching Assistant</span><span class="when">2023–2025</span><span class="what">Intermediate Macroeconomics; Advanced Macroeconomics</span></div>
-    <div class="row"><span class="t">Universidad Nacional de Colombia · Lecturer</span><span class="when">2014–2022</span><span class="what">Mathematical Methods for Economics; International Macroeconomics and Development; Empirical Methods; Quantitative Data Analysis</span></div>
-    <div class="row"><span class="t">Universidad de los Andes · Lecturer</span><span class="when">2018–2019</span><span class="what">Economic History</span></div>
-    <div class="row"><span class="t">Universidad del Rosario · Lecturer</span><span class="when">2018–2019</span><span class="what">Economic Thought</span></div>
-    <div class="row"><span class="t">Universidad de La Salle · Lecturer</span><span class="when">2017</span><span class="what">International Macroeconomics</span></div>
+    <div class="group">
+      <div class="subhead">Student Evaluations, University of Pittsburgh</div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Course</th><th>Role</th><th>Term</th><th class="num">Responses</th><th class="num">Mean (of 5)</th></tr></thead>
+          <tbody>
+            <tr><td>Intermediate Microeconomics (ECON 1100)</td><td>Instructor</td><td>Summer 2025</td><td class="num">7 of 7</td><td class="num">4.71</td></tr>
+            <tr><td>Macroeconomic Theory 2 (ECON 3070)</td><td>Recitation instructor</td><td>Spring 2025</td><td class="num">9 of 12</td><td class="num">4.56</td></tr>
+            <tr><td>Macroeconomic Theory 1 (ECON 3040)</td><td>Recitation instructor</td><td>Fall 2024</td><td class="num">11 of 12</td><td class="num">4.87</td></tr>
+            <tr><td>Macroeconomic Theory 2 (ECON 3070)</td><td>Recitation instructor</td><td>Spring 2024</td><td class="num">9 of 11</td><td class="num">4.91</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">Mean across the scaled questions of the university's teaching survey (OMET), on a scale from 1 (strongly disagree) to 5 (strongly agree). Full reports available on request.</p>
+    </div>
   </div>
 </section>
 
-<section id="contact" aria-labelledby="h-contact">
-  <h2 id="h-contact">Contact</h2>
-  <p>Department of Economics, University of Pittsburgh, Pittsburgh, PA, USA<br>
-  Email: <a href="mailto:ivu1@pitt.edu">ivu1@pitt.edu</a></p>
-</section>
-
-<section id="es" lang="es" aria-labelledby="h-es">
-  <h2 id="h-es">En español</h2>
-  <div class="es">
-    <p>Soy candidato a doctor en Economía de la Universidad de Pittsburgh. Investigo finanzas públicas y macroeconomía en economías en desarrollo: cómo se ajustan los gobiernos cuando su deuda deja de ser sostenible, qué tan bien funcionan las reglas fiscales en la práctica y quién asume los costos de las crisis fiscales y económicas. Buena parte de mi trabajo usa datos fiscales y administrativos de Colombia.</p>
-    <p>Antes del doctorado trabajé diez años en política fiscal: como analista macroeconómico e investigador del Ministerio de Hacienda y Crédito Público (2012–2018), en el Banco Interamericano de Desarrollo y como asesor del Banco de Desarrollo del Caribe. He sido profesor en la Universidad Nacional de Colombia (2014–2022), la Universidad de los Andes, la Universidad del Rosario, la Universidad de La Salle y la Universidad de Pittsburgh.</p>
-    <p>Contacto: <a href="mailto:ivu1@pitt.edu">ivu1@pitt.edu</a></p>
+<!-- ============================ ESPAÑOL ============================ -->
+<section class="page" id="es" lang="es">
+  <div class="container">
+    <div class="eyebrow">Español</div>
+    <h2 class="page-title">En español</h2>
+    <div class="lead">
+      <p>Soy candidato a doctor en Economía de la Universidad de Pittsburgh. Investigo finanzas públicas y macroeconomía en economías en desarrollo: cómo se ajustan los gobiernos cuando su deuda deja de ser sostenible, qué tan bien funcionan las reglas fiscales en la práctica y quién asume los costos de las crisis fiscales y económicas. Buena parte de mi trabajo usa datos fiscales y administrativos de Colombia.</p>
+      <p>Antes del doctorado trabajé diez años en política fiscal: como analista macroeconómico e investigador del Ministerio de Hacienda y Crédito Público (2012–2018), en el Banco Interamericano de Desarrollo y como asesor del Banco de Desarrollo del Caribe. He sido profesor en la Universidad Nacional de Colombia (2014–2022), la Universidad de los Andes, la Universidad del Rosario, la Universidad de La Salle y la Universidad de Pittsburgh.</p>
+      <p>Contacto: <a href="mailto:ivu1@pitt.edu">ivu1@pitt.edu</a></p>
+    </div>
   </div>
 </section>
 
-</main>
+<footer>
+  <div class="container">
+    <span>© 2026 Leonardo Urrea R. · Last updated November 2026</span>
+    <span><a href="mailto:ivu1@pitt.edu">Email</a> · <a href="https://scholar.google.com/citations?user=LGoNyuUAAAAJ" target="_blank" rel="noopener">Scholar</a> · <a href="https://github.com/leourrea" target="_blank" rel="noopener">GitHub</a></span>
+  </div>
+</footer>
 
-<footer>Last updated November 2026</footer>
+<script>
+// Tabs: each section is a page, selected by the URL hash. Without JavaScript all sections show in sequence.
+(function () {
+  var pages = Array.prototype.slice.call(document.querySelectorAll('.page'));
+  var links = Array.prototype.slice.call(document.querySelectorAll('.nav-links a[href^="#"]'));
+  var menu = document.querySelector('.nav-links');
+  var toggle = document.querySelector('.menu-toggle');
+  document.documentElement.classList.add('js');
+  function show() {
+    var id = (location.hash || '#about').slice(1);
+    if (!document.getElementById(id)) id = 'about';
+    pages.forEach(function (p) { p.classList.toggle('active', p.id === id); });
+    links.forEach(function (a) { a.classList.toggle('active', a.getAttribute('href') === '#' + id); });
+    menu.classList.remove('open'); toggle.setAttribute('aria-expanded', 'false');
+    window.scrollTo(0, 0);
+  }
+  window.addEventListener('hashchange', show);
+  toggle.addEventListener('click', function () {
+    toggle.setAttribute('aria-expanded', String(menu.classList.toggle('open')));
+  });
+  show();
+})();
+</script>
 </body>
 </html>
